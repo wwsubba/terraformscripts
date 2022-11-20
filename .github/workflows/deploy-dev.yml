@@ -16,7 +16,7 @@ on:
 jobs:
   deploy-dev:
     name: Deploy DEV
-    uses: /deploy-terraform.yml
+    uses: github/workflows/deploy-terraform.yml@develop
     with:
       environment: dev
       version: ${{ github.sha }}
