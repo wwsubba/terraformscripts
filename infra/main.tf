@@ -16,3 +16,7 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+module "api-cloud-keyvault" {
+  source = "./modules/cloud_keyvault"
+}
