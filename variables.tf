@@ -3,7 +3,7 @@ variable "environment_tag" {
   description = "Environment tag value"
   default = "subba"
 }
-variable "azure-rg-1" {
+variable "azure-rg-2" {
   type        = string
   description = "resource group 1"
   default = "WW-CloudServiceManagement-RG-TBDNov30"
