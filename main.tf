@@ -1,3 +1,7 @@
+provider "azurerm" {
+  skip_provider_registration  = true
+   features {}
+}
 #Create KeyVault ID
 resource "random_id" "kvname" {
   byte_length = 5
