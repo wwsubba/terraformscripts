@@ -11,5 +11,5 @@ variable "azure-rg-1" {
 variable "loc1" {
   description = "The location for this Lab environment"
   type        = string
-  loc1        = "East US"
+  default = "East US"
 }
