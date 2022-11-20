@@ -1,28 +1,30 @@
-provider "aws" {
-  region = var.region
+#Create KeyVault ID
+resource "random_id" "kvname" {
+  byte_length = 5
+  prefix = "keyvault"
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
-}
-
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
+data "azurerm_client_config" "current" {}
+resource "azurerm_key_vault" "kv1" {
+  name                        = random_id.kvname.hex
+  location                    = var.loc1
+  resource_group_name         = var.azure-rg-2
+  enabled_for_disk_encryption = true
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  soft_delete_retention_days  = 7
+  purge_protection_enabled    = false
+  sku_name = "standard"
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+    key_permissions = [
+      "get",
+    ]
+    secret_permissions = [
+      "get", "backup", "delete", "list", "purge", "recover", "restore", "set",
+    ]
+    storage_permissions = [
+      "get",
+    ]
   }
 }
