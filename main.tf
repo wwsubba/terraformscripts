@@ -21,7 +21,7 @@ resource "random_id" "kvname" {
 
 data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault" "kv1" {
- name                        = "examplekeyvault"
+ name                        = random_id.kvname.hex
   location                    = "East US"
   resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
   enabled_for_disk_encryption = true
