@@ -15,7 +15,7 @@ on:
 jobs:
   deploy-dev:
     name: Deploy DEV
-    uses: elanco/solops-appexcellence-github-actions/.github/workflows/deploy-terraform.yml@master
+    uses: /deploy-terraform.yml
     with:
       environment: dev
       version: ${{ github.sha }}
