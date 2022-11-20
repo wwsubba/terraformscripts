@@ -22,8 +22,8 @@ resource "random_id" "kvname" {
 data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault" "kv1" {
  name                        = "examplekeyvault"
-  location                    = var.loc1
-  resource_group_name         = var.azure-rg-1
+  location                    = "East US"
+  resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7
