@@ -5,5 +5,5 @@ locals {
 module "infra" {
   source = "../../"
   
-  environment = "dev"
+  environment                  = "dev"
 }
