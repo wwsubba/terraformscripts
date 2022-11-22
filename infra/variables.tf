@@ -6,3 +6,4 @@ variable "environment" {
     error_message = "Unexpected environment."
   }
 }
+
