@@ -1,12 +1,13 @@
 data "azuread_client_config" "current" {}
 
 resource "azurerm_key_vault" "example" {
-  name                       = "examplekeyvault"
+  count                       = 1
+  name                        = "examplekeyvault"
   location                    = "East US"
   resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
-  tenant_id                  = data.azurerm_client_config.current.tenant_id
-  sku_name                   = "standard"
-  soft_delete_retention_days = 7
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  sku_name                    = "standard"
+  soft_delete_retention_days  = 7
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
