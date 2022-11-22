@@ -1,0 +1,3 @@
+rovider "azurerm" {
+  features {}
+}

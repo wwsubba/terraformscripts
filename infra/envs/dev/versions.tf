@@ -1,5 +1,8 @@
 terraform {
-   required_providers {
+  cloud {
+    organization = "wwsubba"
+  }
+  required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = ">=3.27.0"
@@ -7,13 +10,6 @@ terraform {
     github = {
       source  = "integrations/github"
       version = "5.5.0"
-    }
-  }
-  cloud {
-    organization = "wwsubba"
-
-    workspaces {
-      name = "terraformscripts"
     }
   }
 }
