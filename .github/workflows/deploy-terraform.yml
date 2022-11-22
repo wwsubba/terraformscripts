@@ -51,7 +51,7 @@ jobs:
         shell: bash
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -var app_version=${{ inputs.version }}
+        run: terraform plan -no-color -var-file=dev.tfvars app_version=${{ inputs.version }}
         continue-on-error: true
 
       - name: Terminate if plan failed
