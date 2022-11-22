@@ -16,6 +16,9 @@ provider "azurerm" {
   features {}
 }
 
+data "azurerm_client_config" "current" {
+}
+
 module "api-cloud-keyvault" {
   source = "./modules/cloud_keyvault"
 }
