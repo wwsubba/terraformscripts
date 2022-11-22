@@ -11,7 +11,7 @@ resource "azurerm_key_vault" "kv1" {
  name                        = random_id.kvname.hex
   location                    = "East US"
   resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
-  tenant_id = data.azurerm_client_config.current.tenant_id
+  tenant_id                   = [data.azurerm_client_config.current.tenant_id]
   enabled_for_disk_encryption = true
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
@@ -19,7 +19,8 @@ resource "azurerm_key_vault" "kv1" {
   sku_name = "standard"
 
   access_policy {
-
+    tenant_id = [data.azurerm_client_config.current.tenant_id]
+    object_id = [data.azurerm_client_config.current.object_id]
     key_permissions = [
       "Get",
     ]
