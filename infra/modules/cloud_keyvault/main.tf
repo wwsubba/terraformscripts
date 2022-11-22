@@ -1,14 +1,7 @@
-
-#Create KeyVault ID
-resource "random_id" "kvname" {
-  byte_length = 7
-  prefix = "keyvault"
-}
-
 data "azuread_client_config" "current" {}
 
 resource "azurerm_key_vault" "kv1" {
- name                        = random_id.kvname.hex
+  name                        = "test_ww"
   location                    = "East US"
   resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
   tenant_id                   = [data.azurerm_client_config.current.tenant_id]
