@@ -1,8 +1,16 @@
 terraform {
-  required_version = ">= 1.1.0"
   required_providers {
-    azuread = {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    },
+      azuread = {
       source = "hashicorp/azuread"
     }
   }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
 }
