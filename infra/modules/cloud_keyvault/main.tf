@@ -1,7 +1,7 @@
 data "azuread_client_config" "current" {}
 
 resource "azurerm_key_vault" "kv1" {
-  name                        = "test_ww"
+  name                        = "test_ww1"
   location                    = "East US"
   resource_group_name         = "WW-CloudServiceManagement-RG-TBDNov30"
   enabled_for_disk_encryption = true
