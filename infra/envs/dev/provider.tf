@@ -1,8 +1,9 @@
 terraform {
   cloud {
-    organization = "wwsubba"
+    organization = "wwsubba12"
+
     workspaces {
-      name = "terraformscripts"
+      name = "wwsubbaworkspace"
     }
   }
 }
