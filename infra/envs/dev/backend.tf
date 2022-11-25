@@ -1,8 +1,10 @@
 terraform {
+  required_version = "~> 1.2.0"
   cloud {
-    organization = "wwsubba"
+    organization = "wwsubba12"
+
     workspaces {
-      name = "terraformscripts"
+      name = "wwsubbaapiworkspace"
     }
   }
 }
